@@ -1,0 +1,143 @@
+name: Build and Push Docker Images
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'servers/**'
+      - 'scripts/**'
+      - '.github/workflows/build-push.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'servers/**'
+      - 'scripts/**'
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      server:
+        description: 'Server to build (leave empty for all changed, or "all" for everything)'
+        required: false
+        default: ''
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_PREFIX: ghcr.io/curtbushko/minecraft-servers
+
+jobs:
+  # Detect which servers changed
+  detect-changes:
+    runs-on: ubuntu-latest
+    outputs:
+      servers: ${{ steps.changes.outputs.servers }}
+      matrix: ${{ steps.changes.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Detect changed servers
+        id: changes
+        run: |
+          # Determine which servers to build
+          if [[ "${{ github.event_name }}" == "release" ]] || \
+             [[ "${{ github.event.inputs.server }}" == "all" ]]; then
+            # Build all servers on release or explicit "all"
+            servers=$(ls -d servers/*/ 2>/dev/null | xargs -n1 basename | jq -R -s -c 'split("\n")[:-1]')
+          elif [[ -n "${{ github.event.inputs.server }}" ]]; then
+            # Build specific server from manual trigger
+            servers='["${{ github.event.inputs.server }}"]'
+          else
+            # Detect changed servers
+            if [[ "${{ github.event_name }}" == "pull_request" ]]; then
+              base="${{ github.event.pull_request.base.sha }}"
+            else
+              base="${{ github.event.before }}"
+              # Handle initial push (no before)
+              if [[ "$base" == "0000000000000000000000000000000000000000" ]]; then
+                base="HEAD~1"
+              fi
+            fi
+
+            # Get changed files in servers/ directory
+            changed_files=$(git diff --name-only "$base" HEAD -- servers/ 2>/dev/null || echo "")
+
+            if [[ -z "$changed_files" ]]; then
+              # No changes in servers/, but workflow might have changed
+              # Check if we should build all
+              if git diff --name-only "$base" HEAD | grep -q ".github/workflows/build-push.yml"; then
+                servers=$(ls -d servers/*/ 2>/dev/null | xargs -n1 basename | jq -R -s -c 'split("\n")[:-1]')
+              else
+                servers='[]'
+              fi
+            else
+              servers=$(echo "$changed_files" | cut -d'/' -f2 | sort -u | grep -v '^$' | jq -R -s -c 'split("\n")[:-1]')
+            fi
+          fi
+
+          echo "Servers to build: $servers"
+          echo "servers=$servers" >> $GITHUB_OUTPUT
+
+          # Create matrix
+          if [[ "$servers" == "[]" ]]; then
+            echo "matrix={\"server\":[]}" >> $GITHUB_OUTPUT
+          else
+            echo "matrix={\"server\":$servers}" >> $GITHUB_OUTPUT
+          fi
+
+  build-and-push:
+    needs: detect-changes
+    if: needs.detect-changes.outputs.servers != '[]' && needs.detect-changes.outputs.servers != ''
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    strategy:
+      matrix: ${{ fromJson(needs.detect-changes.outputs.matrix) }}
+      fail-fast: false
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to Container Registry
+        if: github.event_name != 'pull_request'
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Extract metadata
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.IMAGE_PREFIX }}/${{ matrix.server }}
+          tags: |
+            type=ref,event=branch
+            type=ref,event=pr
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
+            type=sha,prefix=
+            type=raw,value=latest,enable={{is_default_branch}}
+
+      - name: Get packwiz URL
+        id: config
+        run: |
+          echo "packwiz_url=https://curtbushko.github.io/minecraft-servers/${{ matrix.server }}/pack.toml" >> $GITHUB_OUTPUT
+
+      - name: Build and push
+        uses: docker/build-push-action@v5
+        with:
+          context: servers/${{ matrix.server }}
+          push: ${{ github.event_name != 'pull_request' }}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          build-args: |
+            PACKWIZ_URL=${{ steps.config.outputs.packwiz_url }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max

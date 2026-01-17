@@ -1,0 +1,4 @@
+# Disable line ending conversion for packwiz files
+# This ensures hashes remain correct across platforms
+*.toml binary
+*.pw.toml binary

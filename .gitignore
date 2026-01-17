@@ -1,0 +1,41 @@
+# Nix
+result
+result-*
+.direnv/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build artifacts
+_site/
+
+# Downloaded JARs (packwiz downloads these, we only track .pw.toml metadata)
+servers/*/mods/*.jar
+servers/*/resourcepacks/*.zip
+servers/*/shaderpacks/*.zip
+
+# Server runtime data (when testing locally)
+servers/*/world/
+servers/*/logs/
+servers/*/crash-reports/
+servers/*/*.json
+servers/*/banned-*.txt
+servers/*/ops.txt
+servers/*/whitelist.txt
+servers/*/usercache.json
+servers/*/server.properties
+
+# Docker
+*.log
+
+# Temporary files
+*.tmp
+*.bak
