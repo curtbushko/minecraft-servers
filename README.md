@@ -45,7 +45,90 @@ Players can auto-sync mods using packwiz-installer:
    ```
 6. Launch the game - mods will auto-sync on every start!
 
+### Client Setup with Nix (Recommended)
+
+This repository provides a Nix flake with a home-manager module that automatically configures Prism Launcher instances with auto-sync.
+
+#### Option 1: Home-Manager Module
+
+Add the flake to your home-manager configuration:
+
+```nix
+# flake.nix
+{
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    home-manager.url = "github:nix-community/home-manager";
+    minecraft-servers.url = "github:curtbushko/minecraft-servers";
+  };
+
+  outputs = { self, nixpkgs, home-manager, minecraft-servers, ... }: {
+    homeConfigurations."your-username" = home-manager.lib.homeManagerConfiguration {
+      pkgs = nixpkgs.legacyPackages.x86_64-linux;
+      modules = [
+        minecraft-servers.homeManagerModules.default
+        {
+          programs.minecraft-servers = {
+            enable = true;
+            # Optional: only enable specific servers (defaults to all)
+            enabledServers = [ "dj-server" ];
+          };
+        }
+      ];
+    };
+  };
+}
+```
+
+This will:
+- Install Prism Launcher and Java 21
+- Create pre-configured instances for each server
+- Set up auto-sync via packwiz-installer on every launch
+
+#### Module Options
+
+| Option | Type | Default | Description |
+|--------|------|---------|-------------|
+| `enable` | bool | `false` | Enable the module |
+| `enabledServers` | list | all servers | Which server instances to create |
+| `instancesPath` | string | `~/.local/share/PrismLauncher/instances` | Prism Launcher instances path |
+| `javaPackage` | package | `pkgs.openjdk21` | Java package for packwiz-installer |
+
+#### Option 2: One-Time Setup Script
+
+If you're not using home-manager, you can use the setup script:
+
+```bash
+# Run directly from the flake
+nix run github:curtbushko/minecraft-servers#setup-instances
+
+# Or specify a custom instances path
+nix run github:curtbushko/minecraft-servers#setup-instances -- ~/.local/share/PrismLauncher/instances
+```
+
+This creates the instance directories and configuration files in your Prism Launcher instances folder.
+
 ## Development
+
+### Nix Development Environment
+
+This repository uses a Nix flake for reproducible development:
+
+```bash
+# Enter the development shell
+nix develop
+
+# Or with direnv (recommended)
+direnv allow
+```
+
+The dev shell provides:
+- Docker
+- Go (for packwiz installation)
+- curl, jq, and other script dependencies
+- GitHub CLI (`gh`)
+- Java 21
+- Automatically installs `packwiz` if not present
 
 ### Building Images Locally
 
