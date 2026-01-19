@@ -1,8 +1,8 @@
 hash-format = "sha256"
 
 [[files]]
-file = "README.md"
-hash = "3ac25ef873bcda6e7e56ce3d5cc61745ee7ee639c1bea0b46ef182760ae03933"
+file = "Dockerfile"
+hash = "74f6499549ec3503e9571e09890f1382bc374f6afa12f9436963ff133e49311d"
 
 [[files]]
 file = "mods/3dskinlayers.pw.toml"
@@ -141,7 +141,7 @@ metafile = true
 
 [[files]]
 file = "mods/controlify.pw.toml"
-hash = "e01ba1e09f0798ef76e923b482fc3e520fc6ccd2ab1bfe5ffdd4452749d274bb"
+hash = "44c9dcd7b5b4920f3b3f2e1fe24ea4cc69763581cad8f1f45e860b307f55fa6a"
 metafile = true
 
 [[files]]
@@ -601,7 +601,7 @@ metafile = true
 
 [[files]]
 file = "mods/structure-pool-api.pw.toml"
-hash = "80398082340dc5c258c0030c0ebe809a27f6a4bb142d649b894ab257a13d6abf"
+hash = "a1c72a67655ffc1c770e5e987c2f7fac1aee1d268d67e5ea273de2fde15df66a"
 metafile = true
 
 [[files]]
@@ -803,6 +803,10 @@ metafile = true
 file = "resourcepacks/tras-fresh-player.pw.toml"
 hash = "394f0039beb4b5c48ba9587b7cfbc306e94b3cb1448f8dd7a624e27af573eedb"
 metafile = true
+
+[[files]]
+file = "server.env"
+hash = "a7cd869c17703880df68a8f6d71fdca1bdab9fd56fd9fa469694eac1ff1e1ad4"
 
 [[files]]
 file = "shaderpacks/complementary-reimagined.pw.toml"
