@@ -1,10 +1,6 @@
 hash-format = "sha256"
 
 [[files]]
-file = "Dockerfile"
-hash = "74f6499549ec3503e9571e09890f1382bc374f6afa12f9436963ff133e49311d"
-
-[[files]]
 file = "mods/3dskinlayers.pw.toml"
 hash = "5f9942ad12740d5eee7688ae36103f3d8539120adafcddee819b27705365a700"
 metafile = true
@@ -803,10 +799,6 @@ metafile = true
 file = "resourcepacks/tras-fresh-player.pw.toml"
 hash = "394f0039beb4b5c48ba9587b7cfbc306e94b3cb1448f8dd7a624e27af573eedb"
 metafile = true
-
-[[files]]
-file = "server.env"
-hash = "a7cd869c17703880df68a8f6d71fdca1bdab9fd56fd9fa469694eac1ff1e1ad4"
 
 [[files]]
 file = "shaderpacks/complementary-reimagined.pw.toml"
