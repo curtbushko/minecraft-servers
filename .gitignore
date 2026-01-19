@@ -39,3 +39,5 @@ servers/*/server.properties
 # Temporary files
 *.tmp
 *.bak
+
+.claude
