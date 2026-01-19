@@ -33,11 +33,73 @@
         sha256 = "sha256-qPuyTcYEJ46X9GiOgtPZGjGLmO/AjV2/y8vKtkQ9EWw=";
       };
 
+      # Script to generate servers.dat in Minecraft NBT format
+      serversGenerator = pkgs: pkgs.writeShellScript "generate-servers-dat" ''
+        set -e
+
+        OUTPUT_PATH="$1"
+        shift
+
+        # Helper functions for NBT format (big-endian)
+        write_short() {
+          local value=$1
+          printf "\\x$(printf '%02x' $((value >> 8)))\\x$(printf '%02x' $((value & 0xFF)))"
+        }
+
+        write_int() {
+          local value=$1
+          printf "\\x$(printf '%02x' $((value >> 24)))\\x$(printf '%02x' $(((value >> 16) & 0xFF)))\\x$(printf '%02x' $(((value >> 8) & 0xFF)))\\x$(printf '%02x' $((value & 0xFF)))"
+        }
+
+        write_nbt_string() {
+          local str="$1"
+          write_short ''${#str}
+          printf '%s' "$str"
+        }
+
+        # Build servers.dat
+        {
+          # Root TAG_Compound with empty name
+          printf '\x0a'
+          write_short 0
+
+          # TAG_List named "servers"
+          printf '\x09'
+          write_nbt_string "servers"
+          printf '\x0a'  # List type: TAG_Compound
+          write_int $(($# / 2))  # Number of servers (name/ip pairs)
+
+          # Add each server
+          while [ $# -ge 2 ]; do
+            SERVER_NAME="$1"
+            SERVER_IP="$2"
+            shift 2
+
+            # TAG_String "name"
+            printf '\x08'
+            write_nbt_string "name"
+            write_nbt_string "$SERVER_NAME"
+
+            # TAG_String "ip"
+            printf '\x08'
+            write_nbt_string "ip"
+            write_nbt_string "$SERVER_IP"
+
+            # TAG_End for server compound
+            printf '\x00'
+          done
+
+          # TAG_End for root compound
+          printf '\x00'
+        } > "$OUTPUT_PATH"
+      '';
+
       # Home-manager module for Prism Launcher instances
       homeManagerModule = { config, lib, pkgs, ... }:
         let
           cfg = config.programs.minecraft-servers;
           bootstrap = packwizBootstrap pkgs;
+          generateServersDat = serversGenerator pkgs;
         in
         {
           options.programs.minecraft-servers = {
@@ -61,11 +123,43 @@
               default = pkgs.openjdk21;
               description = "Java package to use for running packwiz-installer";
             };
+
+            serverEntries = lib.mkOption {
+              type = lib.types.listOf (lib.types.submodule {
+                options = {
+                  name = lib.mkOption {
+                    type = lib.types.str;
+                    description = "Server display name in the multiplayer menu";
+                  };
+                  ip = lib.mkOption {
+                    type = lib.types.str;
+                    description = "Server address (can include port like 'host:25565')";
+                  };
+                };
+              });
+              default = [];
+              description = "List of servers to add to each instance's server list (servers.dat)";
+              example = [
+                { name = "My Server"; ip = "myserver.example.com:25565"; }
+              ];
+            };
           };
 
           config = lib.mkIf cfg.enable {
             # Ensure Prism Launcher is installed
             home.packages = [ pkgs.prismlauncher cfg.javaPackage ];
+
+            # Generate servers.dat for each instance when serverEntries is configured
+            home.activation.generateServersDat = lib.mkIf (cfg.serverEntries != []) (
+              lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+                ${builtins.concatStringsSep "\n" (map (serverName: ''
+                  if [ -d "${cfg.instancesPath}/${serverName}/.minecraft" ]; then
+                    $DRY_RUN_CMD ${generateServersDat} "${cfg.instancesPath}/${serverName}/.minecraft/servers.dat" \
+                      ${lib.concatMapStringsSep " " (s: ''"${s.name}" "${s.ip}"'') cfg.serverEntries}
+                  fi
+                '') cfg.enabledServers)}
+              ''
+            );
 
             # Create instance directories and configs
             home.file = lib.mkMerge (map

@@ -93,6 +93,23 @@ This will:
 | `enabledServers` | list | all servers | Which server instances to create |
 | `instancesPath` | string | `~/.local/share/PrismLauncher/instances` | Prism Launcher instances path |
 | `javaPackage` | package | `pkgs.openjdk21` | Java package for packwiz-installer |
+| `serverEntries` | list | `[]` | Servers to add to the multiplayer menu (see below) |
+
+##### Pre-configured Server List
+
+You can automatically add servers to Minecraft's multiplayer menu:
+
+```nix
+programs.minecraft-servers = {
+  enable = true;
+  serverEntries = [
+    { name = "D&J Server (gamingrig)"; ip = "gamingrig:25565"; }
+    { name = "Another Server"; ip = "mc.example.com"; }
+  ];
+};
+```
+
+This generates a `servers.dat` file in each instance's `.minecraft` folder with your pre-configured servers.
 
 #### Option 2: One-Time Setup Script
 
