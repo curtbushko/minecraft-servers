@@ -214,6 +214,14 @@ This means:
 - **On push to `servers/`**: GitHub Actions builds and pushes Docker images to ghcr.io
 - **On push to modpack files**: GitHub Pages deploys packwiz files for client auto-sync
 
+### Repository Setup (for forks)
+
+If you fork this repository, you need to configure GitHub Pages:
+
+1. Go to **Settings > Pages**
+2. Under "Build and deployment", set **Source** to **GitHub Actions**
+3. The `pages.yml` workflow will now deploy packwiz files to `https://<username>.github.io/minecraft-servers/`
+
 ## License
 
 MIT
