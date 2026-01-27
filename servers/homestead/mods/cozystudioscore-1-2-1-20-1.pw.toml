@@ -1,0 +1,13 @@
+name = "cozystudioscore"
+filename = "cozystudioscore-1.2-1.20.1.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/vtJbMy5O/versions/ZLWaAYph/cozystudioscore-1.2-1.20.1.jar"
+hash-format = "sha1"
+hash = "ed22981dc9faf52077ec3866760551672dc9d031"
+
+[update]
+[update.modrinth]
+mod-id = "vtJbMy5O"
+version = "ZLWaAYph"

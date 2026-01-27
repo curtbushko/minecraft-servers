@@ -1,0 +1,13 @@
+name = "superDuperVanilla.zip"
+filename = "superDuperVanilla.zip"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/LMIZZNxZ/versions/KB0sOLSc/superDuperVanilla.zip"
+hash-format = "sha1"
+hash = "f2d6d259368e8b8d8807abb1ac28aaa7cff85b8c"
+
+[update]
+[update.modrinth]
+mod-id = "LMIZZNxZ"
+version = "KB0sOLSc"

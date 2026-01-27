@@ -1,0 +1,13 @@
+name = "more enchantment info"
+filename = "more-enchantment-info-0.2.0.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/TIo1UXXV/versions/1uJuD5ye/more-enchantment-info-0.2.0.jar"
+hash-format = "sha1"
+hash = "7d4e14d9f9ea588b927145833b851584b66458cf"
+
+[update]
+[update.modrinth]
+mod-id = "TIo1UXXV"
+version = "1uJuD5ye"

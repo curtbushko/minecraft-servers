@@ -1,0 +1,13 @@
+name = "flower tweaks"
+filename = "flower-tweaks-1.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/JSMwcdt3/versions/NAGMctke/flower-tweaks-1.jar"
+hash-format = "sha1"
+hash = "b80badae26d319ecb7b678f56abfa761d1a5324c"
+
+[update]
+[update.modrinth]
+mod-id = "JSMwcdt3"
+version = "NAGMctke"

@@ -1,0 +1,13 @@
+name = "moonlight"
+filename = "moonlight-1.20-2.16.16-fabric.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/twkfQtEc/versions/1yJlkP4n/moonlight-1.20-2.16.16-fabric.jar"
+hash-format = "sha1"
+hash = "1c87cd8e6cf95c2de82d1a14fa509d47ba6e547b"
+
+[update]
+[update.modrinth]
+mod-id = "twkfQtEc"
+version = "1yJlkP4n"

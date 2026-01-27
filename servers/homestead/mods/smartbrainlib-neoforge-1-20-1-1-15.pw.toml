@@ -1,0 +1,13 @@
+name = "SmartBrainLib neoforge"
+filename = "SmartBrainLib-neoforge-1.20.1-1.15.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/PuyPazRT/versions/EPH5uBb1/SmartBrainLib-neoforge-1.20.1-1.15.jar"
+hash-format = "sha1"
+hash = "7982cd1b9d77897d153800facb4b4abf0d7fa52f"
+
+[update]
+[update.modrinth]
+mod-id = "PuyPazRT"
+version = "EPH5uBb1"

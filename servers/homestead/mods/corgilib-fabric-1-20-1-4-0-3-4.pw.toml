@@ -1,0 +1,13 @@
+name = "Corgilib Fabric"
+filename = "Corgilib-Fabric-1.20.1-4.0.3.4.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/ziOp6EO8/versions/Fk0j3oUu/Corgilib-Fabric-1.20.1-4.0.3.4.jar"
+hash-format = "sha1"
+hash = "541dac11b5b9655eb1fe79c2b91893cdad630855"
+
+[update]
+[update.modrinth]
+mod-id = "ziOp6EO8"
+version = "Fk0j3oUu"

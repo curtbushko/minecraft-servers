@@ -1,0 +1,13 @@
+name = "TameableMossbloom"
+filename = "TameableMossbloom-1.0.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/Ox5JszKu/versions/za5T9EYK/TameableMossbloom-1.0.jar"
+hash-format = "sha1"
+hash = "123fb945f0faf9dcdf5976aa930374a0e394a3d9"
+
+[update]
+[update.modrinth]
+mod-id = "Ox5JszKu"
+version = "za5T9EYK"

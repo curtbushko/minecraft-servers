@@ -17,14 +17,13 @@
           loaderVersion = "21.1.217";
           packwizUrl = "https://curtbushko.github.io/minecraft-servers/dj-server/pack.toml";
         };
-        # Add more servers as needed:
-        # another-server = {
-        #   name = "Another Server";
-        #   minecraft = "1.21.1";
-        #   loader = "neoforge";
-        #   loaderVersion = "21.1.217";
-        #   packwizUrl = "https://curtbushko.github.io/minecraft-servers/another-server/pack.toml";
-        # };
+        homestead = {
+          name = "Homestead";
+          minecraft = "1.20.1";
+          loader = "fabric";
+          loaderVersion = "0.16.10";
+          packwizUrl = "https://curtbushko.github.io/minecraft-servers/homestead/pack.toml";
+        };
       };
 
       # packwiz-installer-bootstrap JAR

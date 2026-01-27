@@ -1,0 +1,13 @@
+name = "toms storage fabric"
+filename = "toms_storage_fabric-1.20-1.7.1.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/XZNI4Cpy/versions/nvqkBIsD/toms_storage_fabric-1.20-1.7.1.jar"
+hash-format = "sha1"
+hash = "adef379e843b6788f0743b035e4658e043baf2f5"
+
+[update]
+[update.modrinth]
+mod-id = "XZNI4Cpy"
+version = "nvqkBIsD"

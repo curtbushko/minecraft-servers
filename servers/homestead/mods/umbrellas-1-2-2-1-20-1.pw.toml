@@ -1,0 +1,13 @@
+name = "umbrellas"
+filename = "umbrellas-1.2.2+1.20.1.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/dgTb67Ox/versions/QP0PTm08/umbrellas-1.2.2%2B1.20.1.jar"
+hash-format = "sha1"
+hash = "2bb99990cd209edf62e7084b093f697a2d8c5014"
+
+[update]
+[update.modrinth]
+mod-id = "dgTb67Ox"
+version = "QP0PTm08"

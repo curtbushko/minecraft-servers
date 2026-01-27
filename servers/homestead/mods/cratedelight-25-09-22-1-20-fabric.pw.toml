@@ -1,0 +1,13 @@
+name = "cratedelight"
+filename = "cratedelight-25.09.22-1.20-fabric.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/9rlXSyLg/versions/CjRQrJL8/cratedelight-25.09.22-1.20-fabric.jar"
+hash-format = "sha1"
+hash = "1f6ab7a5ffce24e5c99b2548baac9a4dc0d3496b"
+
+[update]
+[update.modrinth]
+mod-id = "9rlXSyLg"
+version = "CjRQrJL8"

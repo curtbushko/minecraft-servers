@@ -1,0 +1,13 @@
+name = "deltaboxlib fabric"
+filename = "deltaboxlib-fabric-2.2.0+1.20.1.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/FDGHOWuC/versions/c4xDJPXg/deltaboxlib-fabric-2.2.0%2B1.20.1.jar"
+hash-format = "sha1"
+hash = "c708db41117782ae11dea52e3002f94b4e6348b7"
+
+[update]
+[update.modrinth]
+mod-id = "FDGHOWuC"
+version = "c4xDJPXg"

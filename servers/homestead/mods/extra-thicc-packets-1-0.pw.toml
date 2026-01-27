@@ -1,0 +1,13 @@
+name = "extra thicc packets"
+filename = "extra_thicc_packets-1.0.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/Gc56DHid/versions/EFH2Xt0X/extra_thicc_packets-1.0.jar"
+hash-format = "sha1"
+hash = "976ebc913d0ea3c3b2e14a47ee4db6e28294d013"
+
+[update]
+[update.modrinth]
+mod-id = "Gc56DHid"
+version = "EFH2Xt0X"

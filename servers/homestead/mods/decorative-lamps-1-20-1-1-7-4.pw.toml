@@ -1,0 +1,13 @@
+name = "Decorative Lamps"
+filename = "Decorative Lamps-1.20.1-1.7.4.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/B4n7BWWA/versions/G3UStyEd/Decorative%20Lamps-1.20.1-1.7.4.jar"
+hash-format = "sha1"
+hash = "012ec6c404a1f1b3e9914aa946defd6be65401f7"
+
+[update]
+[update.modrinth]
+mod-id = "B4n7BWWA"
+version = "G3UStyEd"

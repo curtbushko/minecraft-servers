@@ -1,0 +1,13 @@
+name = "createcontraptionterminals fabric"
+filename = "createcontraptionterminals-fabric-1.20-1.1.0.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/gOPAFzp0/versions/TymTJZew/createcontraptionterminals-fabric-1.20-1.1.0.jar"
+hash-format = "sha1"
+hash = "5552793e45de911ef00542f6e8f6fc4263098524"
+
+[update]
+[update.modrinth]
+mod-id = "gOPAFzp0"
+version = "TymTJZew"

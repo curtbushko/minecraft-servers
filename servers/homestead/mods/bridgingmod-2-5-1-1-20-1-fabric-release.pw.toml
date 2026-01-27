@@ -1,0 +1,13 @@
+name = "BridgingMod"
+filename = "BridgingMod-2.5.1+1.20.1.fabric-release.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/lO3s8hjs/versions/PcPvYHBC/BridgingMod-2.5.1%2B1.20.1.fabric-release.jar"
+hash-format = "sha1"
+hash = "0383fefda27f60342498391da46ecdf6ba011ed6"
+
+[update]
+[update.modrinth]
+mod-id = "lO3s8hjs"
+version = "PcPvYHBC"

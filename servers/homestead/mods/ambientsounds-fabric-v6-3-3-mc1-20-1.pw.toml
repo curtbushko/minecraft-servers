@@ -1,0 +1,13 @@
+name = "AmbientSounds FABRIC v6.3.3 mc1.20.1"
+filename = "AmbientSounds_FABRIC_v6.3.3_mc1.20.1.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/fM515JnW/versions/oKgx9ZLI/AmbientSounds_FABRIC_v6.3.3_mc1.20.1.jar"
+hash-format = "sha1"
+hash = "a7a5ca96be4fa641ab720e9361a3be3c668a5469"
+
+[update]
+[update.modrinth]
+mod-id = "fM515JnW"
+version = "oKgx9ZLI"

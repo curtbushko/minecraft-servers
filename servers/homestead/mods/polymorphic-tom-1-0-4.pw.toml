@@ -1,0 +1,13 @@
+name = "polymorphic tom"
+filename = "polymorphic-tom-1.0.4.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/lgaejLU2/versions/oMm5vDjv/polymorphic-tom-1.0.4.jar"
+hash-format = "sha1"
+hash = "f2fc2858bf36b3cde302e789d233e4f5b5179b2f"
+
+[update]
+[update.modrinth]
+mod-id = "lgaejLU2"
+version = "oMm5vDjv"

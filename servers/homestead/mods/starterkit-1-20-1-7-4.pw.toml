@@ -1,0 +1,13 @@
+name = "starterkit"
+filename = "starterkit-1.20.1-7.4.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/6L3ydNi8/versions/8vUVrBt5/starterkit-1.20.1-7.4.jar"
+hash-format = "sha1"
+hash = "8c6f9cb038c7b41b317f79645c8110a9f31016ca"
+
+[update]
+[update.modrinth]
+mod-id = "6L3ydNi8"
+version = "8vUVrBt5"

@@ -1,0 +1,13 @@
+name = "smarterfarmers"
+filename = "smarterfarmers-1.20-2.1.2-fabric.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/Bh6ZOMvp/versions/wIH5Vc3z/smarterfarmers-1.20-2.1.2-fabric.jar"
+hash-format = "sha1"
+hash = "54a85986da603cf02be5437397ad02b7a4e5bf44"
+
+[update]
+[update.modrinth]
+mod-id = "Bh6ZOMvp"
+version = "wIH5Vc3z"

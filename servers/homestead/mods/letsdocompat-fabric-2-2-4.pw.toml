@@ -1,0 +1,13 @@
+name = "letsdocompat fabric"
+filename = "letsdocompat-fabric-2.2.4.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/FNi5IMiX/versions/8la3SE7N/letsdocompat-fabric-2.2.4.jar"
+hash-format = "sha1"
+hash = "83b674042cc48ecb2d7f7e5aab0fde4f8594c3fb"
+
+[update]
+[update.modrinth]
+mod-id = "FNi5IMiX"
+version = "8la3SE7N"

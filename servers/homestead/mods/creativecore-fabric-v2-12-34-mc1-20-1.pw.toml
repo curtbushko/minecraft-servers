@@ -1,0 +1,13 @@
+name = "CreativeCore FABRIC v2.12.34 mc1.20.1"
+filename = "CreativeCore_FABRIC_v2.12.34_mc1.20.1.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/OsZiaDHq/versions/HoxFnPO8/CreativeCore_FABRIC_v2.12.34_mc1.20.1.jar"
+hash-format = "sha1"
+hash = "d6fd7ceb95052431a01c139c9ed242aa40895fe7"
+
+[update]
+[update.modrinth]
+mod-id = "OsZiaDHq"
+version = "HoxFnPO8"

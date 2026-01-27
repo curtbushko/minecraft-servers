@@ -1,0 +1,13 @@
+name = "tameableminisheep"
+filename = "tameableminisheep-1.0.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/1XXcoWoe/versions/BFVOh81A/tameableminisheep-1.0.jar"
+hash-format = "sha1"
+hash = "1baaea1dd9f1ae4dd91907be7833bd5e0ab7b486"
+
+[update]
+[update.modrinth]
+mod-id = "1XXcoWoe"
+version = "BFVOh81A"

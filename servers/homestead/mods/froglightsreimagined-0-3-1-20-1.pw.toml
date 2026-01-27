@@ -1,0 +1,13 @@
+name = "froglightsreimagined"
+filename = "froglightsreimagined-0.3-1.20.1.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/t9byj1DE/versions/zB7lMIyZ/froglightsreimagined-0.3-1.20.1.jar"
+hash-format = "sha1"
+hash = "01bb18490ab335ecd11f3488b9f5dd4985e9286c"
+
+[update]
+[update.modrinth]
+mod-id = "t9byj1DE"
+version = "zB7lMIyZ"

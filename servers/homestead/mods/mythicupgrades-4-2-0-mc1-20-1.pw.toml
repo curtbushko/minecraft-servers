@@ -1,0 +1,13 @@
+name = "mythicupgrades"
+filename = "mythicupgrades-4.2.0+mc1.20.1.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/ERH7cFoy/versions/cD4zn9kb/mythicupgrades-4.2.0%2Bmc1.20.1.jar"
+hash-format = "sha1"
+hash = "20977e8848b8920e6559c2d5af588594bd593b04"
+
+[update]
+[update.modrinth]
+mod-id = "ERH7cFoy"
+version = "cD4zn9kb"

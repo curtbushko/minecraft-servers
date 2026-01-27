@@ -1,0 +1,13 @@
+name = "naturesdelight"
+filename = "naturesdelight-1.12-1.20.1.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/18s8zHvJ/versions/oE6qdrOY/naturesdelight-1.12-1.20.1.jar"
+hash-format = "sha1"
+hash = "accc2d99f45996f361bdfd015332746c1f444a13"
+
+[update]
+[update.modrinth]
+mod-id = "18s8zHvJ"
+version = "oE6qdrOY"

@@ -1,0 +1,13 @@
+name = "suppsquared"
+filename = "suppsquared-1.20-1.1.29.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/dCCkNFwE/versions/hGBKgPSc/suppsquared-1.20-1.1.29.jar"
+hash-format = "sha1"
+hash = "69c3d2c787660af1dcd9273c78e16d781cf4cb31"
+
+[update]
+[update.modrinth]
+mod-id = "dCCkNFwE"
+version = "hGBKgPSc"

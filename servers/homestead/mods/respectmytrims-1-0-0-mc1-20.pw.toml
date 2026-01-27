@@ -1,0 +1,13 @@
+name = "respectmytrims"
+filename = "respectmytrims-1.0.0+mc1.20.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/beDOFui2/versions/gqXBmjr6/respectmytrims-1.0.0%2Bmc1.20.jar"
+hash-format = "sha1"
+hash = "241417ae23155d8fef5db50068fb9f95190e5230"
+
+[update]
+[update.modrinth]
+mod-id = "beDOFui2"
+version = "gqXBmjr6"

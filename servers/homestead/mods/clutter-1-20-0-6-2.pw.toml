@@ -1,0 +1,13 @@
+name = "clutter"
+filename = "clutter-1.20-0.6.2.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/KZAmykow/versions/cfTqvICk/clutter-1.20-0.6.2.jar"
+hash-format = "sha1"
+hash = "246f0f195629186b0441b5da7b0aa30a236ab5ae"
+
+[update]
+[update.modrinth]
+mod-id = "KZAmykow"
+version = "cfTqvICk"

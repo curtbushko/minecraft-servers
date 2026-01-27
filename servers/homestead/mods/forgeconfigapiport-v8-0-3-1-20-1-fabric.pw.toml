@@ -1,0 +1,13 @@
+name = "ForgeConfigAPIPort v8.0.3"
+filename = "ForgeConfigAPIPort-v8.0.3-1.20.1-Fabric.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/ohNO6lps/versions/HvR3IdRE/ForgeConfigAPIPort-v8.0.3-1.20.1-Fabric.jar"
+hash-format = "sha1"
+hash = "41f146d16a37f62e84e60cab226058d1a87f9cec"
+
+[update]
+[update.modrinth]
+mod-id = "ohNO6lps"
+version = "HvR3IdRE"

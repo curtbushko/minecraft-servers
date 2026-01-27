@@ -1,0 +1,13 @@
+name = "Camerapture"
+filename = "Camerapture-1.10.8+mc1.20.1-fabric.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/9dzLWnmZ/versions/FaaKtiri/Camerapture-1.10.8%2Bmc1.20.1-fabric.jar"
+hash-format = "sha1"
+hash = "54c04f866cf97f1582f7e8d769dbc30dde64d690"
+
+[update]
+[update.modrinth]
+mod-id = "9dzLWnmZ"
+version = "FaaKtiri"

@@ -1,0 +1,13 @@
+name = "peaceful hunger fabric"
+filename = "peaceful_hunger-fabric-1.20.1-2.2.0.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/NGEcCZ3C/versions/3HJWKNWf/peaceful_hunger-fabric-1.20.1-2.2.0.jar"
+hash-format = "sha1"
+hash = "f41f6e124a34088728cff29d4c686144f746eccb"
+
+[update]
+[update.modrinth]
+mod-id = "NGEcCZ3C"
+version = "3HJWKNWf"

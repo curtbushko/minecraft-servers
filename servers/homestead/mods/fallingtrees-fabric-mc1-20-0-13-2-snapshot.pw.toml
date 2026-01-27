@@ -1,0 +1,13 @@
+name = "fallingtrees fabric mc1.20"
+filename = "fallingtrees-fabric-mc1.20-0.13.2-SNAPSHOT.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/i2kUe4lq/versions/N00bYlSS/fallingtrees-fabric-mc1.20-0.13.2-SNAPSHOT.jar"
+hash-format = "sha1"
+hash = "cc0f3b120049b18daec3c20d1d4b563f3444e8ff"
+
+[update]
+[update.modrinth]
+mod-id = "i2kUe4lq"
+version = "N00bYlSS"

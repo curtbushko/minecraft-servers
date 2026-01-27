@@ -1,0 +1,13 @@
+name = "no resource pack warnings"
+filename = "no-resource-pack-warnings-1.3.1.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/6xKUDQcB/versions/73nzTFDd/no-resource-pack-warnings-1.3.1.jar"
+hash-format = "sha1"
+hash = "7a21f4604fab946201e2cfc1a9a8f526f5581cdf"
+
+[update]
+[update.modrinth]
+mod-id = "6xKUDQcB"
+version = "73nzTFDd"

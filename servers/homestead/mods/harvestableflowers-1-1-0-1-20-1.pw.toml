@@ -1,0 +1,13 @@
+name = "harvestableflowers"
+filename = "harvestableflowers-1.1.0+1.20.1.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/Oacb4dGE/versions/zPDY5YBh/harvestableflowers-1.1.0%2B1.20.1.jar"
+hash-format = "sha1"
+hash = "77390837bd790a7b306aaae95858c56cd506dfc6"
+
+[update]
+[update.modrinth]
+mod-id = "Oacb4dGE"
+version = "zPDY5YBh"

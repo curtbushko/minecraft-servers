@@ -1,0 +1,13 @@
+name = "squish"
+filename = "squish-0.3-1.20.1.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/3z1Z8gDY/versions/HhjNVt6a/squish-0.3-1.20.1.jar"
+hash-format = "sha1"
+hash = "00c51c14ee1823f276e8f5bbe21bac9500e98e2d"
+
+[update]
+[update.modrinth]
+mod-id = "3z1Z8gDY"
+version = "HhjNVt6a"

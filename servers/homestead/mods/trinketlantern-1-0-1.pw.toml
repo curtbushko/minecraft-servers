@@ -1,0 +1,13 @@
+name = "trinketlantern"
+filename = "trinketlantern-1.0.1.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/HzK9IrCM/versions/FkTLB5q1/trinketlantern-1.0.1.jar"
+hash-format = "sha1"
+hash = "0fd7760cf1fddfeae7625a0a2175135868c4f231"
+
+[update]
+[update.modrinth]
+mod-id = "HzK9IrCM"
+version = "FkTLB5q1"

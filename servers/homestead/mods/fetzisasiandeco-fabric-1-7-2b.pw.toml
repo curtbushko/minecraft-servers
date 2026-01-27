@@ -1,0 +1,13 @@
+name = "fetzisasiandeco fabric"
+filename = "fetzisasiandeco-fabric-1.7.2b.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/Eg3hDPUB/versions/2FJCKMgm/fetzisasiandeco-fabric-1.7.2b.jar"
+hash-format = "sha1"
+hash = "29c757f02acd1d0fdb0fded5e346b034d8bc7ff5"
+
+[update]
+[update.modrinth]
+mod-id = "Eg3hDPUB"
+version = "2FJCKMgm"

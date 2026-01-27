@@ -1,0 +1,13 @@
+name = "Celestial Configuration fabric"
+filename = "Celestial Configuration-fabric-1.20.1-1.1.1.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/C5tEOKu9/versions/wCZadXy8/Celestial%20Configuration-fabric-1.20.1-1.1.1.jar"
+hash-format = "sha1"
+hash = "0f14d49b738fcde70e1e0a1419ef1bb6a8ba16d0"
+
+[update]
+[update.modrinth]
+mod-id = "C5tEOKu9"
+version = "wCZadXy8"

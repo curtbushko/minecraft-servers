@@ -1,0 +1,13 @@
+name = "letsdo candlelight fabric"
+filename = "letsdo-candlelight-fabric-2.0.5.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/qwbArkQk/versions/RUk2PHO1/letsdo-candlelight-fabric-2.0.5.jar"
+hash-format = "sha1"
+hash = "fda38107a8fbf90fc4208be0f996b8f81f28b5e8"
+
+[update]
+[update.modrinth]
+mod-id = "qwbArkQk"
+version = "RUk2PHO1"

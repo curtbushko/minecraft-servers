@@ -1,0 +1,13 @@
+name = "tooltipoverhaul fabric"
+filename = "tooltipoverhaul-fabric-1.20.1-1.4.1.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/vRFcG5n6/versions/eZsfdDtV/tooltipoverhaul-fabric-1.20.1-1.4.1.jar"
+hash-format = "sha1"
+hash = "40956fa8c9bb0915ea8317fc7133ed3f4c89fa2f"
+
+[update]
+[update.modrinth]
+mod-id = "vRFcG5n6"
+version = "eZsfdDtV"

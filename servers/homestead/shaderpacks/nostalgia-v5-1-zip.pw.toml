@@ -1,0 +1,13 @@
+name = "Nostalgia v5.1.zip"
+filename = "Nostalgia_v5.1.zip"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/xEItlMn3/versions/fzxeGgx7/Nostalgia_v5.1.zip"
+hash-format = "sha1"
+hash = "c93900007773ce0314539461e26aa8faadf4aec9"
+
+[update]
+[update.modrinth]
+mod-id = "xEItlMn3"
+version = "fzxeGgx7"

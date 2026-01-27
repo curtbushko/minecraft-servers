@@ -1,0 +1,13 @@
+name = "yet another config lib v3"
+filename = "yet_another_config_lib_v3-3.6.6+1.20.1-fabric.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/1eAoo2KR/versions/dvS5DjUA/yet_another_config_lib_v3-3.6.6%2B1.20.1-fabric.jar"
+hash-format = "sha1"
+hash = "dc5ac6c6c4d1e48e8e520b9a41b41e704e82cf55"
+
+[update]
+[update.modrinth]
+mod-id = "1eAoo2KR"
+version = "dvS5DjUA"

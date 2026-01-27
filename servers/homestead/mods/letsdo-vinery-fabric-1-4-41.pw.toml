@@ -1,0 +1,13 @@
+name = "letsdo vinery fabric"
+filename = "letsdo-vinery-fabric-1.4.41.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/1DWmBJVA/versions/Xv8zHKzi/letsdo-vinery-fabric-1.4.41.jar"
+hash-format = "sha1"
+hash = "3e65b576e50b6c1ffdd8213ecc43bf91f1477785"
+
+[update]
+[update.modrinth]
+mod-id = "1DWmBJVA"
+version = "Xv8zHKzi"

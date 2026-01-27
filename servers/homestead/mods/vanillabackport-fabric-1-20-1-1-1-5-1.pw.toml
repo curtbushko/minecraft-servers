@@ -1,0 +1,13 @@
+name = "vanillabackport fabric"
+filename = "vanillabackport-fabric-1.20.1-1.1.5.1.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/6xwxDTgf/versions/4EIzCLkj/vanillabackport-fabric-1.20.1-1.1.5.1.jar"
+hash-format = "sha1"
+hash = "74404ee7aad8846ebf4f238b251c25fb3ce78c6c"
+
+[update]
+[update.modrinth]
+mod-id = "6xwxDTgf"
+version = "4EIzCLkj"

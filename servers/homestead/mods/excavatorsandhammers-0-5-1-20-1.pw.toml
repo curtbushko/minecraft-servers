@@ -1,0 +1,13 @@
+name = "excavatorsandhammers"
+filename = "excavatorsandhammers-0.5-1.20.1.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/2HaoWnJc/versions/gNyR7ijg/excavatorsandhammers-0.5-1.20.1.jar"
+hash-format = "sha1"
+hash = "5a642d78c0cef066753f45e0043532af1dffd01e"
+
+[update]
+[update.modrinth]
+mod-id = "2HaoWnJc"
+version = "gNyR7ijg"
