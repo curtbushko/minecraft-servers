@@ -179,7 +179,7 @@
                     iconKey=default
                     name=${server.name}
                     OverrideCommands=true
-                    PreLaunchCommand="$INST_JAVA" -jar packwiz-installer-bootstrap.jar ${server.packwizUrl}
+                    PreLaunchCommand=cd "$INST_MC_DIR" && "$INST_JAVA" -jar packwiz-installer-bootstrap.jar ${server.packwizUrl}
                   '';
 
                   # Component versions (mmc-pack.json)
@@ -329,7 +329,7 @@
           iconKey=default
           name=${server.name}
           OverrideCommands=true
-          PreLaunchCommand="$INST_JAVA" -jar packwiz-installer-bootstrap.jar ${server.packwizUrl}
+          PreLaunchCommand=cd "$INST_MC_DIR" && "$INST_JAVA" -jar packwiz-installer-bootstrap.jar ${server.packwizUrl}
           EOF
 
             cat > "$INSTANCES_DIR/${name}/mmc-pack.json" << 'EOF'
