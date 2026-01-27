@@ -175,6 +175,7 @@
                   "${instanceDir}/instance.cfg".text = ''
                     [General]
                     ConfigVersion=1.2
+                    InstanceType=OneSix
                     iconKey=default
                     name=${server.name}
                     OverrideCommands=true
@@ -324,6 +325,7 @@
             cat > "$INSTANCES_DIR/${name}/instance.cfg" << 'EOF'
           [General]
           ConfigVersion=1.2
+          InstanceType=OneSix
           iconKey=default
           name=${server.name}
           OverrideCommands=true
@@ -337,6 +339,11 @@
               { cachedName = "Minecraft"; cachedRequires = [{ equals = "3.3.3"; uid = "org.lwjgl3"; }]; cachedVersion = server.minecraft; important = true; uid = "net.minecraft"; version = server.minecraft; }
             ] ++ (if server.loader == "neoforge" then [
               { cachedName = "NeoForge"; cachedRequires = [{ equals = server.minecraft; uid = "net.minecraft"; }]; cachedVersion = server.loaderVersion; uid = "net.neoforged"; version = server.loaderVersion; }
+            ] else if server.loader == "fabric" then [
+              { cachedName = "Intermediary Mappings"; cachedRequires = [{ equals = server.minecraft; uid = "net.minecraft"; }]; cachedVersion = server.minecraft; dependencyOnly = true; uid = "net.fabricmc.intermediary"; version = server.minecraft; }
+              { cachedName = "Fabric Loader"; cachedRequires = [{ uid = "net.fabricmc.intermediary"; }]; cachedVersion = server.loaderVersion; uid = "net.fabricmc.fabric-loader"; version = server.loaderVersion; }
+            ] else if server.loader == "forge" then [
+              { cachedName = "Forge"; cachedRequires = [{ equals = server.minecraft; uid = "net.minecraft"; }]; cachedVersion = server.loaderVersion; uid = "net.minecraftforge"; version = server.loaderVersion; }
             ] else []);
             formatVersion = 1;
           }}
