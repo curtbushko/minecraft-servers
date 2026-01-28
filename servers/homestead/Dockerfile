@@ -1,29 +1,28 @@
 # Homestead Minecraft Server
-# Based on: https://github.com/cramt/minecraft-homestead-docker
+# Uses packwiz for mod management - same mods as client
 # Server Pack: https://github.com/CozyCord/homestead/wiki/Server-Pack
 
-FROM ubuntu AS downloader
-WORKDIR /app
-RUN apt update -y && apt install curl unzip -y
+FROM itzg/minecraft-server:java17
 
-# Download Homestead Server Pack 1.2.9.2 from Google Drive
-ARG GDRIVE_FILE_ID=1KrsOqyAzhqMI3cn5eZxtJGdksWY6nDPr
-RUN curl -L "https://drive.usercontent.google.com/download?id=${GDRIVE_FILE_ID}&export=download&confirm=t" --output pack.zip
-RUN unzip pack.zip && \
-    mv Homestead*/* . && \
-    rmdir Homestead* && \
-    rm -rf pack.zip
+# Minecraft and mod loader configuration
+ENV TYPE=FABRIC
+ENV VERSION=1.20.1
+ENV FABRIC_LOADER_VERSION=0.17.2
+ENV EULA=TRUE
 
-# Accept EULA and configure for containerized environment
-RUN echo "eula=true" >> eula.txt
-RUN sed -i -e 's/RESTART=true/RESTART=false/g' variables.txt
-RUN sed -i -e 's/WAIT_FOR_USER_INPUT=true/WAIT_FOR_USER_INPUT=false/g' variables.txt
+# Memory settings (can be overridden at runtime)
+ENV MEMORY=6G
 
-FROM eclipse-temurin:17
-WORKDIR /data
-COPY ./entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
-COPY --from=downloader /app/ /app/
-RUN chmod +x /app/start.sh || true
+# Packwiz URL for automatic mod downloading
+# The itzg/minecraft-server image will automatically filter out client-only mods
+ARG PACKWIZ_URL
+ENV PACKWIZ_URL=${PACKWIZ_URL}
+
+# Server properties
+ENV MAX_PLAYERS=20
+ENV MOTD="Homestead Minecraft Server"
+ENV DIFFICULTY=normal
+ENV VIEW_DISTANCE=12
+ENV SIMULATION_DISTANCE=10
+
 EXPOSE 25565
-CMD ["/entrypoint.sh"]
