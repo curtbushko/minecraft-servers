@@ -148,42 +148,23 @@
             # Ensure Prism Launcher is installed
             home.packages = [ pkgs.prismlauncher cfg.javaPackage ];
 
-            # Generate servers.dat for each instance when serverEntries is configured
-            home.activation.generateServersDat = lib.mkIf (cfg.serverEntries != []) (
-              lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-                ${builtins.concatStringsSep "\n" (map (serverName: ''
-                  if [ -d "${cfg.instancesPath}/${serverName}/.minecraft" ]; then
-                    $DRY_RUN_CMD ${generateServersDat} "${cfg.instancesPath}/${serverName}/.minecraft/servers.dat" \
-                      ${lib.concatMapStringsSep " " (s: ''"${s.name}" "${s.ip}"'') cfg.serverEntries}
-                  fi
-                '') cfg.enabledServers)}
-              ''
-            );
-
-            # Create instance directories and configs
-            home.file = lib.mkMerge (map
-              (serverName:
+            # Generate instance config files as writable copies (not symlinks)
+            # PrismLauncher needs to write to these files
+            home.activation.setupMinecraftInstances = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+              ${builtins.concatStringsSep "\n" (map (serverName:
                 let
                   server = servers.${serverName};
                   instanceDir = "${cfg.instancesPath}/${serverName}";
-                in
-                {
-                  # packwiz-installer-bootstrap.jar in .minecraft folder
-                  "${instanceDir}/.minecraft/packwiz-installer-bootstrap.jar".source = bootstrap;
-
-                  # Instance configuration
-                  "${instanceDir}/instance.cfg".text = ''
-                    [General]
-                    ConfigVersion=1.2
-                    InstanceType=OneSix
-                    iconKey=default
-                    name=${server.name}
-                    OverrideCommands=true
-                    PreLaunchCommand=cd "$INST_MC_DIR" && "$INST_JAVA" -jar packwiz-installer-bootstrap.jar ${server.packwizUrl}
-                  '';
-
-                  # Component versions (mmc-pack.json)
-                  "${instanceDir}/mmc-pack.json".text = builtins.toJSON {
+                  instanceCfg = ''
+[General]
+ConfigVersion=1.2
+InstanceType=OneSix
+iconKey=default
+name=${server.name}
+OverrideCommands=true
+PreLaunchCommand=cd "$INST_MC_DIR" && "$INST_JAVA" -jar packwiz-installer-bootstrap.jar ${server.packwizUrl}
+'';
+                  mmcPackJson = builtins.toJSON {
                     components = [
                       {
                         cachedName = "LWJGL 3";
@@ -235,8 +216,47 @@
                     ] else []);
                     formatVersion = 1;
                   };
-                })
-              cfg.enabledServers);
+                in ''
+                # Setup ${serverName} instance
+                $DRY_RUN_CMD mkdir -p "${instanceDir}/.minecraft"
+
+                # Copy packwiz bootstrap jar
+                $DRY_RUN_CMD rm -f "${instanceDir}/.minecraft/packwiz-installer-bootstrap.jar"
+                $DRY_RUN_CMD cp "${bootstrap}" "${instanceDir}/.minecraft/packwiz-installer-bootstrap.jar"
+                $DRY_RUN_CMD chmod 644 "${instanceDir}/.minecraft/packwiz-installer-bootstrap.jar"
+
+                # Create instance.cfg (remove if symlink, create fresh)
+                if [ -L "${instanceDir}/instance.cfg" ]; then
+                  $DRY_RUN_CMD rm "${instanceDir}/instance.cfg"
+                fi
+                if [ ! -f "${instanceDir}/instance.cfg" ]; then
+                  $DRY_RUN_CMD cat > "${instanceDir}/instance.cfg" << 'INSTANCECFG'
+${instanceCfg}INSTANCECFG
+                fi
+
+                # Create mmc-pack.json (remove if symlink, create fresh)
+                if [ -L "${instanceDir}/mmc-pack.json" ]; then
+                  $DRY_RUN_CMD rm "${instanceDir}/mmc-pack.json"
+                fi
+                if [ ! -f "${instanceDir}/mmc-pack.json" ]; then
+                  $DRY_RUN_CMD cat > "${instanceDir}/mmc-pack.json" << 'MMCPACK'
+${mmcPackJson}
+MMCPACK
+                fi
+              '') cfg.enabledServers)}
+            '';
+
+            # Generate servers.dat for each instance when serverEntries is configured
+            home.activation.generateServersDat = lib.mkIf (cfg.serverEntries != []) (
+              lib.hm.dag.entryAfter [ "setupMinecraftInstances" ] ''
+                ${builtins.concatStringsSep "\n" (map (serverName: ''
+                  if [ -d "${cfg.instancesPath}/${serverName}/.minecraft" ]; then
+                    $DRY_RUN_CMD ${generateServersDat} "${cfg.instancesPath}/${serverName}/.minecraft/servers.dat" \
+                      ${lib.concatMapStringsSep " " (s: ''"${s.name}" "${s.ip}"'') cfg.serverEntries}
+                  fi
+                '') cfg.enabledServers)}
+              ''
+            );
           };
         };
 
